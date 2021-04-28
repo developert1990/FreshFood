@@ -1,0 +1,46 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+#root {
+    height: 100%;
+    max-width: 100%;
+}
+
+html {
+    box-sizing: border-box;
+    font-size: 72.5%;
+}
+
+body {
+    margin: 0;
+    height: 100vh;
+    font-size: 1.6rem;
+    font-family: 'Yanone Kaffeesatz', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.fa-star,
+.fa-star-half-alt {
+    color: rgb(255, 208, 0);
+}
+
+.App {
+    position: relative;
+    min-height: 100vh;
+
+}
+
+.components-wrap {
+    padding-bottom: 3.5rem;
+}
+
+.footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 2.5rem;
+}
