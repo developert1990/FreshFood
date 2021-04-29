@@ -1,0 +1,1 @@
+export const INVALID_EMAIL_MESSAGE = "The email address is not valid";

@@ -1,13 +1,13 @@
 import React from 'react';
 import { Button, Col, Jumbotron, Row, } from "react-bootstrap";
-
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 export const Footer = () => {
     return (
         <div className="footer">
-            <h1 className="pt-3 text-center font-details-b pb-3">CONTACT ME</h1>
-            <h2 className="pt-3 text-center font-details-b pb-3">Created by<br /> Sangmean Hong</h2>
             <Jumbotron className="contact-jumbotron">
+                <h1 className="pt-3 text-center font-details-b pb-3">CONTACT ME</h1>
+                <h2 className="pt-3 text-center font-details-b pb-3">Created by<br /> Sangmean Hong</h2>
                 <Row>
                     <Col className="d-flex justify-content-center flex-wrap">
                         <div className="m-2">
@@ -32,7 +32,7 @@ export const Footer = () => {
                             </a>
                         </div>
                         <div className="m-2">
-                            <a href="https://github.com/jadenHong" target="_blank" rel="noopener noreferrer">
+                            <a href="https://github.com/developert1990" target="_blank" rel="noopener noreferrer">
                                 <Button variant="outline-warning" title="My other projects">
                                     <i className="fab fa-github-square"></i> GitHub
                                 </Button>

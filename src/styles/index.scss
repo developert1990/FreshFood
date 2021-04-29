@@ -1,3 +1,5 @@
+@import './components/SignUp.scss';
+
 * {
     box-sizing: border-box;
     margin: 0;
@@ -16,9 +18,10 @@ html {
 
 body {
     margin: 0;
+    padding: 10px;
     height: 100vh;
     font-size: 1.6rem;
-    font-family: 'Yanone Kaffeesatz', sans-serif;
+    font-family: "Avenir Next Cyr W00 Demi",Arial,sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 }
@@ -31,7 +34,6 @@ body {
 .App {
     position: relative;
     min-height: 100vh;
-
 }
 
 .components-wrap {
@@ -44,3 +46,6 @@ body {
     width: 100%;
     height: 2.5rem;
 }
+// .ant-steps-item-tail::after {
+//     background-color: #f59506;
+// }

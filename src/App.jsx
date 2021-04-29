@@ -1,10 +1,10 @@
 import React from 'react';
-import { Footer } from './components/Footer.jsx';
+import Router from './router';
 
 function App() {
     return (
         <div className="App">
-            <Footer />
+            <Router />
         </div>
     );
 }
