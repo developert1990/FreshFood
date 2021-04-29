@@ -1,4 +1,7 @@
+@import './constants/variables';
 @import './components/SignUp.scss';
+@import './components/ProgressBar.scss';
+@import './components/addItems.scss';
 
 * {
     box-sizing: border-box;
@@ -26,11 +29,6 @@ body {
     -moz-osx-font-smoothing: grayscale;
 }
 
-.fa-star,
-.fa-star-half-alt {
-    color: rgb(255, 208, 0);
-}
-
 .App {
     position: relative;
     min-height: 100vh;
@@ -46,6 +44,3 @@ body {
     width: 100%;
     height: 2.5rem;
 }
-// .ant-steps-item-tail::after {
-//     background-color: #f59506;
-// }
