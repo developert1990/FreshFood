@@ -1,4 +1,4 @@
-import { SIGNUP_FAIL, SIGNUP_REQUEST, SIGNUP_SUCCESS } from '../constants/signUpConstant';
+import { SIGNUP_FAIL, SIGNUP_SUCCESS } from '../constants/signUpConstant';
 
 export const signUpInitialState = {
     error: "",

@@ -11,7 +11,6 @@ export const SignUp = ({ signUpAPI, signUpFailAPI, error, step, changeStep }) =>
     const isInvalid = email === '' || zipCode === '';
     const focusInput = useRef();
 
-    console.log(`step ==> `, step)
     const handleSubmit = () => {
         if (!email.match(EMAIL_REG_EXP)) {
             signUpFailAPI();
