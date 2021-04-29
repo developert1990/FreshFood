@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Stepper from '@material-ui/core/Stepper';
 import Step from '@material-ui/core/Step';
@@ -25,13 +25,13 @@ function getSteps() {
 }
 
 
-export const ProgressBar = () => {
+export const ProgressBar = ({ step }) => {
     const classes = useStyles();
-    const [activeStep, setActiveStep] = useState(0);
+    console.log(`step ==>>> `, step)
     const steps = getSteps();
     return (
         <div className={classes.root}>
-            <Stepper activeStep={activeStep} alternativeLabel>
+            <Stepper activeStep={step} alternativeLabel>
                 {steps.map((label) => (
                     <Step key={label}>
                         <StepLabel>{label}</StepLabel>

@@ -1,9 +1,9 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { useHistory } from 'react-router';
 import { EMAIL_REG_EXP } from '../config';
-import { MessageBox } from '../components';
+import { MessageBox } from '../components/MessageBox';
 
-export const SignUp = ({ signUpAPI, signUpFailAPI, error }) => {
+export const SignUp = ({ signUpAPI, signUpFailAPI, error, step, changeStep }) => {
     const [email, setEmail] = useState('');
     const [zipCode, setZipCode] = useState('');
     const [open, setOpen] = useState(false);
@@ -11,7 +11,7 @@ export const SignUp = ({ signUpAPI, signUpFailAPI, error }) => {
     const isInvalid = email === '' || zipCode === '';
     const focusInput = useRef();
 
-
+    console.log(`step ==> `, step)
     const handleSubmit = () => {
         if (!email.match(EMAIL_REG_EXP)) {
             signUpFailAPI();
@@ -21,12 +21,16 @@ export const SignUp = ({ signUpAPI, signUpFailAPI, error }) => {
             setOpen(true);
         } else {
             signUpAPI(zipCode, email);
+            changeStep(1);
             history.push('/addItems');
         }
     }
 
     useEffect(() => {
         focusInput.current.focus();
+        if (step === 1) {
+            changeStep(-1);
+        }
     }, [])
 
     return (

@@ -3,9 +3,11 @@ import { composeWithDevTools } from 'redux-devtools-extension';
 import promise from 'redux-promise-middleware';
 import thunk from 'redux-thunk';
 import { signUpReducer } from './redux/reducers/signUpReducer';
+import { stepReducer } from './redux/reducers/stepReducer';
 
 const rootReducer = combineReducers({
-    signUpStore: signUpReducer
+    signUpStore: signUpReducer,
+    stepStore: stepReducer,
 });
 
 export const store = createStore(rootReducer, {}, composeWithDevTools(applyMiddleware(promise, thunk)));
