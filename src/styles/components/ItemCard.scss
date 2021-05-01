@@ -1,4 +1,82 @@
+
 .ItemCard {
+    font-family: "Source Sans Pro", Verdana, Helvetica, Arial, Tahoma, sans-serif;
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: repeat(3, 1fr);
+    .foodName {
+        margin: 20px;
+        text-align: center;
+        height: 40px;
+        font-weight: bolder;
+    }
+
+    .singleItem {
+        position: relative;
+        display: block;
+        text-decoration: none;
+        margin: 0 50px 35px 0;
+        width: 300px;
+        margin-right: 20px;
+    }
+
+        .itemContentDetail {
+        font-size: 16px;
+        font-weight: normal;
+        line-height: 1.625;
+    }
+
+
+    .itemImg {
+        position: relative;
+        width: 100%;
+        height: 230px;
+        background-repeat: no-repeat;
+        background-position: center center;
+        background-size: cover;
+        -moz-box-shadow: 0 6px 24px 0 rgba(0, 0, 0, 0.1);
+        -webkit-box-shadow: 0 6px 24px 0 rgba(0, 0, 0, 0.1);
+        box-shadow: 0 6px 24px 0 rgba(0, 0, 0, 0.1);
+    }
+
+
+    .itemContent {
+        height: 231px;
+        position: relative;
+        padding: 20px;
+        background-color: #fff;
+        -moz-box-shadow: 0 6px 24px 0 rgba(0, 0, 0, 0.1);
+        -webkit-box-shadow: 0 6px 24px 0 rgba(0, 0, 0, 0.1);
+        box-shadow: 0 6px 24px 0 rgba(0, 0, 0, 0.1);
+    }
+
+    .addBtn{
+        width: 120px;
+    }
+
+    .nameAndNutrition{
+        height: 120px;
+    }
+
+    .MuiFormLabel-root{
+        top: -15px;
+    }
+    .MuiInputBase-root{
+        margin-top: 0;
+    }
+
+
+    .itemLabel {
+        position: absolute;
+        left: 20px;
+        top: -15px;
+        display: inline-block;
+        padding: 3px 10px;
+        font-size: 14px;
+        font-weight: 700;
+        letter-spacing: 1px;
+        color: #fff;
+        text-transform: uppercase;
+        background-color: #E2002B;
+    }
+
 }

@@ -9,8 +9,11 @@ export const AddItems = ({ fetchAllAPI, isLoading, foods, error, addToCartAPI, c
     }, [])
     return (
         <div className="addItems">
-            <ItemCard foods={foods} addToCartAPI={addToCartAPI} />
-            <Cart cartItems={cartItems} addToCartAPI={addToCartAPI} deleteCartItemAPI={deleteCartItemAPI} />
+            <h1 className="addItemsTitle">Fresh-Meals to Your Door</h1>
+            <div className="addItemsContents">
+                <ItemCard foods={foods} addToCartAPI={addToCartAPI} cartItems={cartItems} />
+                <Cart cartItems={cartItems} addToCartAPI={addToCartAPI} deleteCartItemAPI={deleteCartItemAPI} />
+            </div>
         </div>
     )
 }
