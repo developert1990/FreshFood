@@ -18,8 +18,8 @@ export default () => {
                 atActive={{ opacity: 1 }}
                 className="switch-wrapper"
             >
-                <Route path="/" component={SignUp_HOC} exact />
                 <PrivateRoute path="/addItems" component={AddItems_HOC} />
+                <Route path="/" component={SignUp_HOC} exact />
             </AnimatedSwitch>
             <Footer />
         </BrowserRouter>
