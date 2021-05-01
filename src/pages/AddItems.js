@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
-import { Cart } from './Cart';
-import { ItemCard } from './ItemCard';
+import { Cart } from '../components/Cart';
+import { ItemCard } from '../components/ItemCard';
 
 export const AddItems = ({ fetchAllAPI, isLoading, foods, error, addToCartAPI, cartItems, deleteCartItemAPI }) => {
 

@@ -1,10 +1,9 @@
 /* eslint-disable react/jsx-pascal-case */
 import { BrowserRouter, Route } from 'react-router-dom';
-import { AddItems } from '../components/AddItems';
 import { Footer } from '../components/Footer';
-import { SignUp_HOC } from '../pages';
+import { SignUp_HOC, AddItems_HOC } from '../pages';
 import { AnimatedSwitch } from 'react-router-transition';
-import { ProgressBar_HOC, AddItems_HOC } from '../components';
+import { ProgressBar_HOC } from '../components';
 import { PrivateRoute } from '../components/PrivateRoute';
 
 // eslint-disable-next-line import/no-anonymous-default-export
