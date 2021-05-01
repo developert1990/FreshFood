@@ -8,12 +8,10 @@ export const getAllItemAction = () => async (dispatch) => {
     });
     const products = promise.products;
     const newArr = [];
-    console.log(`products: `, products)
     products.map((data) => {
         const obj = { id: data.id, title: data.title, body_html: data.body_html, variants: data.variants, image: data.image.src };
         newArr.push(obj);
     })
-    console.log(`newArr: `, newArr)
     if (promise) {
         dispatch({ type: GET_ALL_ITEMS_SUCCESS, payload: newArr });
     } else {

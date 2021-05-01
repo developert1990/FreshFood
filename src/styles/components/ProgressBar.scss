@@ -1,12 +1,19 @@
-.progressBar{
+.progressBar {
     position: fixed;
     z-index: 100;
-    top: 0;
+    top: 0px;
     width: 100%;
-    .brandName{
+    .MuiStepper-root{
+        padding-top: 55px;
+        padding-bottom: 10px;
+    }
+    .brandName {
         font-family: 'Dancing Script', cursive;
+        font-size: 30px;
         position: fixed;
-    top: 0;
-    width: 100%;
+        text-align: center;
+        top: 0;
+        width: 100%;
+        padding-top: 10px;
     }
 }

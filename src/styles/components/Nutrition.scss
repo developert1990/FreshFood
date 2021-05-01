@@ -1,0 +1,15 @@
+.Nutrition {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    text-align: center;
+    align-items: center;
+    margin-bottom: 15px;
+    .nutritionTitle {
+        font-size: 14px;
+    }
+    .nutritionVal {
+        font-size: 12px;
+        color: #76787A;
+    }
+}

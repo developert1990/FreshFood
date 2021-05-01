@@ -1,7 +1,18 @@
-.addItems{
-    margin-top: 100px;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    padding-bottom: 60px;
+
+.addItems {
+    padding-bottom: 160px;
+    .addItemsTitle {
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@1,500&display=swap');
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: 150px;
+        margin-bottom: 50px;
+        font-family: 'Roboto', sans-serif;
+        font-size: 32px;
+    }
+    .addItemsContents {
+        display: flex;
+        justify-content: center;
+    }
 }
