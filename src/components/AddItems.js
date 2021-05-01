@@ -1,15 +1,16 @@
 import React, { useEffect } from 'react';
+import { Cart } from './Cart';
+import { ItemCard } from './ItemCard';
 
-export const AddItems = ({ fetchAllAPI, isLoading, foods, error }) => {
+export const AddItems = ({ fetchAllAPI, isLoading, foods, error, addToCartAPI, cartItems, deleteCartItemAPI }) => {
 
     useEffect(() => {
         fetchAllAPI();
     }, [])
-    console.log(`foods`, foods)
     return (
         <div className="addItems">
-            아이템추가!!
-            <span data-mce-fragment="1">604 Calories, 56g Protein, 41g Carbs, 24g Fats</span>
+            <ItemCard foods={foods} addToCartAPI={addToCartAPI} />
+            <Cart cartItems={cartItems} addToCartAPI={addToCartAPI} deleteCartItemAPI={deleteCartItemAPI} />
         </div>
     )
 }

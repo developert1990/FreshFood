@@ -30,6 +30,7 @@ export const SignUp = ({ signUpAPI, signUpFailAPI, error, step, changeStep }) =>
         if (step === 1) {
             changeStep(-1);
         }
+        localStorage.clear();
     }, [])
 
     return (
