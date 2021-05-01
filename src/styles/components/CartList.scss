@@ -1,0 +1,92 @@
+.MuiDrawer-paper {
+    overflow-y: hidden;
+    -ms-overflow-style: none;
+}
+.MuiDrawer-paper::-webkit-scrollbar {
+    display: none;
+}
+
+.cartTop {
+    font-family: "Roboto", sans-serif;
+    position: fixed;
+    top: 0;
+    z-index: 200;
+    padding: 20px;
+    background-color: $whiteColor;
+    width: 470px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .MuiSvgIcon-root {
+        font-size: 30px;
+        margin-left: 15px;
+    }
+}
+
+.tableWrapper {
+    padding: 10px;
+}
+
+.cartItem {
+    border-bottom: 2px solid #ebe7e7;
+}
+.cartBottom {
+    position: fixed;
+    bottom: 0;
+    background-color: $whiteColor;
+    width: 480px;
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+}
+
+table {
+    margin: 75px 0;
+}
+th {
+    color: #c0c0c0;
+}
+
+td {
+    margin: 12px 0;
+    font-family: "Roboto", sans-serif;
+}
+
+th:nth-child(1),
+td:nth-child(1) {
+    width: 220px;
+    height: 55px;
+}
+th:nth-child(2),
+td:nth-child(2) {
+    width: 120px;
+    height: 55px;
+}
+th:nth-child(3),
+td:nth-child(3) {
+    width: 80px;
+    height: 55px;
+}
+
+td:nth-child(1) {
+    display: flex;
+    align-items: center;
+    .img {
+        width: 55px;
+    }
+    .orderItemName {
+        font-size: 12px;
+        margin-left: 15px;
+    }
+}
+
+.deleteBtn {
+    &:hover {
+        color: red;
+    }
+}
+
+.cartTotalPrice {
+    font-family: "Krona One", sans-serif;
+}
