@@ -22,7 +22,7 @@ export const CartList = ({ anchor, toggleDrawer, cartItems, addToCartAPI, delete
     const handleDelete = ({ id }) => {
         deleteCartItemAPI({ id });
     }
-
+    const isCartEmpty = cartItems.length === 0;
     return (
         <div
             id="Cart"
@@ -48,38 +48,42 @@ export const CartList = ({ anchor, toggleDrawer, cartItems, addToCartAPI, delete
                         </thead>
                         <tbody>
                             {
-                                cartItems.length > 0 && cartItems.map((item, index) => {
-                                    const { id, image, price, qty, title } = item;
-                                    totalPrice += price * qty;
-                                    return (
-                                        <tr className="cartItem" key={index}>
-                                            <td>
-                                                <img className="img" src={image} alt="foodImg" />
-                                                <div className="orderItemName" >{title}</div>
-                                            </td>
-                                            <td className="orderItemCount">
-                                                <IconButton aria-label="add" color="secondary" disabled={qty === 1 ? true : false} onClick={() => handleDecrease({ id, image, price, qty, title })}>
-                                                    <RemoveCircleIcon fontSize="small" />
-                                                </IconButton>
-                                                <span>{qty}</span>
-                                                <IconButton aria-label="add" color="primary" onClick={() => handleIncrease({ id, image, price, qty, title })}>
-                                                    <AddCircleIcon fontSize="small" />
-                                                </IconButton>
-                                            </td>
-                                            <td>${(price * qty).toFixed(2)}</td>
-                                            <td>
-                                                <IconButton aria-label="delete" className="deleteBtn" onClick={() => handleDelete({ id })}>
-                                                    <RiDeleteBin7Line className="deleteBtn" />
-                                                </IconButton>
-                                            </td>
-                                        </tr>
-                                    )
-                                })}
+                                cartItems.length === 0 ?
+                                    <div className="emptyCart">
+                                        <span>Empty..</span>
+                                    </div>
+                                    : cartItems.map((item, index) => {
+                                        const { id, image, price, qty, title } = item;
+                                        totalPrice += price * qty;
+                                        return (
+                                            <tr className="cartItem" key={index}>
+                                                <td>
+                                                    <img className="img" src={image} alt="foodImg" />
+                                                    <div className="orderItemName" >{title}</div>
+                                                </td>
+                                                <td className="orderItemCount">
+                                                    <IconButton aria-label="add" color="secondary" disabled={qty === 1 ? true : false} onClick={() => handleDecrease({ id, image, price, qty, title })}>
+                                                        <RemoveCircleIcon fontSize="small" />
+                                                    </IconButton>
+                                                    <span>{qty}</span>
+                                                    <IconButton aria-label="add" color="primary" onClick={() => handleIncrease({ id, image, price, qty, title })}>
+                                                        <AddCircleIcon fontSize="small" />
+                                                    </IconButton>
+                                                </td>
+                                                <td>${(price * qty).toFixed(2)}</td>
+                                                <td>
+                                                    <IconButton aria-label="delete" className="deleteBtn" onClick={() => handleDelete({ id })}>
+                                                        <RiDeleteBin7Line className="deleteBtn" />
+                                                    </IconButton>
+                                                </td>
+                                            </tr>
+                                        )
+                                    })}
                         </tbody>
                     </table>
                 </div>
                 <div className="cartBottom">
-                    <Button className="addBtn" size="large" variant="outlined" color="secondary">
+                    <Button disabled={isCartEmpty} className="addBtn" size="large" variant="outlined" color="secondary">
                         Place Order
                     </Button>
                     <div className="cartTotalPrice">${totalPrice.toFixed(2)}</div>

@@ -1,4 +1,4 @@
-import { ADD_TO_CART_SUCCESS, DELETE_CART_ITEM } from '../constants/cartConstant';
+import { ADD_TO_CART_SUCCESS, DELETE_ALL_ITEMS, DELETE_CART_ITEM } from '../constants/cartConstant';
 
 export const cartInitialState = {
     cartItems: localStorage.getItem("cartItems")
@@ -22,6 +22,8 @@ export const cartReducer = (state = cartInitialState, action) => {
                 ...state,
                 cartItems: state.cartItems.filter(x => x.id !== action.payload)
             }
+        case DELETE_ALL_ITEMS:
+            return { cartItems: [] }
         default:
             return { ...state };
     }
