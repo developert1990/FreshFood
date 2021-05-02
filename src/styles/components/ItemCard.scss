@@ -51,6 +51,11 @@
 
     .addBtn {
         width: 120px;
+        color: $baseGreenColor;
+        border-color: $baseGreenColor;
+        &:hover{
+            background-color: #36eee84d;
+        }
     }
 
     .nameAndNutrition {
@@ -75,6 +80,6 @@
         letter-spacing: 1px;
         color: $whiteColor;
         text-transform: uppercase;
-        background-color: $errorColor;
+        background-color: $baseGreenColor;
     }
 }

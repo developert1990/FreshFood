@@ -30,7 +30,7 @@ export const ItemCard = ({ foods, addToCartAPI, cartItems }) => {
                             />
                         </div>
                         <div className="itemContent">
-                            <span className="itemLabel">{food.title === "Vitamin A" ? "Vitamin" : "Food"}</span>
+                            <span className="itemLabel">{food.title === "Vitamin A" ? "Vitamin" : "Meal"}</span>
                             <div className="itemContentDetail">
                                 <div className="nameAndNutrition">
                                     <div className="foodName">

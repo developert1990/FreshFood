@@ -7,6 +7,13 @@
         padding-top: 55px;
         padding-bottom: 10px;
     }
+
+    .MuiStepIcon-root.MuiStepIcon-active {
+        color: $baseGreenColor;
+    }
+    .MuiStepIcon-root.MuiStepIcon-completed {
+        color: $baseGreenColor;
+    }
     .brandName {
         font-family: "Dancing Script", cursive;
         font-size: 30px;
@@ -30,24 +37,28 @@
             text-decoration: none;
             &:hover {
                 cursor: pointer;
-                color: $basePinkColor;
+                color: $baseGreenColor;
             }
         }
-    }
-
-    .MuiStepIcon-root.MuiStepIcon-active {
-        color: $basePinkColor;
-    }
-    .MuiStepIcon-root.MuiStepIcon-completed {
-        color: $basePinkColor;
     }
 
     .active {
         &:hover {
             cursor: pointer;
             .MuiStepLabel-label {
-                color: $basePinkColor;
+                color: $baseGreenColor;
             }
         }
+    }
+
+    .bikeLogo {
+        position: fixed;
+        right: 100px;
+        top: 10px;
+        background-image: url("../../images/bike.png");
+        background-size: contain;
+        background-repeat: no-repeat;
+        width: 60px;
+        height: 60px;
     }
 }

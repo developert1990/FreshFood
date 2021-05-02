@@ -51,6 +51,7 @@ export const CartList = ({ anchor, toggleDrawer, cartItems, addToCartAPI, delete
                                 cartItems.length === 0 ?
                                     <div className="emptyCart">
                                         <span>Empty..</span>
+                                        <div className="cartLogo"></div>
                                     </div>
                                     : cartItems.map((item, index) => {
                                         const { id, image, price, qty, title } = item;
@@ -83,7 +84,7 @@ export const CartList = ({ anchor, toggleDrawer, cartItems, addToCartAPI, delete
                     </table>
                 </div>
                 <div className="cartBottom">
-                    <Button disabled={isCartEmpty} className="addBtn" size="large" variant="outlined" color="secondary">
+                    <Button disabled={isCartEmpty} className="addBtn" size="large">
                         Place Order
                     </Button>
                     <div className="cartTotalPrice">${totalPrice.toFixed(2)}</div>

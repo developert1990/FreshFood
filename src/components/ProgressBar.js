@@ -52,6 +52,7 @@ export const ProgressBar = ({ step }) => {
                     })}
                 </Stepper>
             </div>
+            <div className="bikeLogo"></div>
         </div>
     )
 }

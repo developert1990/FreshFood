@@ -39,7 +39,8 @@ export const SignUp = ({ signUpAPI, signUpFailAPI, error, step, changeStep, clea
     return (
         <div className="SignUpPage">
             <div className="signUpTop">
-                <div className="test">
+                <div className="formWrapper">
+                    {/* <img className="bikeLogo" src="../images/bike.png" alt="" /> */}
                     <div className="form">
                         <h1 className="formTitle">THE MEAL THAT TASTES LIKE NO OTHER</h1>
                         <h2 className="formSubTitle">27 deliciously different meals to inspire the everyday chef.</h2>
