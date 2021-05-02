@@ -2,8 +2,9 @@ import React, { useEffect, useRef, useState } from 'react';
 import { useHistory } from 'react-router';
 import { EMAIL_REG_EXP } from '../config';
 import { MessageBox } from '../components/MessageBox';
+import { Button } from '@material-ui/core';
 
-export const SignUp = ({ signUpAPI, signUpFailAPI, error, step, changeStep }) => {
+export const SignUp = ({ signUpAPI, signUpFailAPI, error, step, changeStep, clearAllCartItemsAPI }) => {
     const [email, setEmail] = useState('');
     const [zipCode, setZipCode] = useState('');
     const [open, setOpen] = useState(false);
@@ -29,36 +30,59 @@ export const SignUp = ({ signUpAPI, signUpFailAPI, error, step, changeStep }) =>
         focusInput.current.focus();
         if (step === 1) {
             changeStep(-1);
+            clearAllCartItemsAPI();
         }
         localStorage.clear();
     }, [])
 
     return (
         <div className="SignUpPage">
-            <div className="test">
-                <div className="form">
-                    <h1 className="formTitle">THE MEAL THAT TASTES LIKE NO OTHER</h1>
-                    <h2 className="formSubTitle">27 deliciously different meals to inspire the everyday chef.</h2>
-                    <div className="formBase">
-                        <input className="formInput"
-                            autoComplete="off"
-                            placeholder="Shipping zipcode"
-                            onChange={(e) => setZipCode(e.target.value)}
-                            name="zipCode"
-                            value={zipCode}
-                            ref={focusInput} />
-                        <input className="formInput"
-                            pattern="/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/" required
-                            placeholder="Email Address"
-                            onChange={(e) => setEmail(e.target.value)}
-                            onKeyPress={event => event.key === 'Enter' ? handleSubmit() : null}
-                            name="email"
-                            value={email} />
-                        <MessageBox open={open} handleAlertClose={() => setOpen(false)} message={error} />
-                        <button onClick={handleSubmit} className="formSubmit" disabled={isInvalid} type="submit">
-                            Start cooking now
+            <div className="signUpTop">
+                <div className="test">
+                    <div className="form">
+                        <h1 className="formTitle">THE MEAL THAT TASTES LIKE NO OTHER</h1>
+                        <h2 className="formSubTitle">27 deliciously different meals to inspire the everyday chef.</h2>
+                        <div className="formBase">
+                            <input className="formInput"
+                                autoComplete="off"
+                                placeholder="Shipping zipcode"
+                                onChange={(e) => setZipCode(e.target.value)}
+                                name="zipCode"
+                                value={zipCode}
+                                ref={focusInput} />
+                            <input className="formInput"
+                                pattern="/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/" required
+                                placeholder="Email Address"
+                                onChange={(e) => setEmail(e.target.value)}
+                                onKeyPress={event => event.key === 'Enter' ? handleSubmit() : null}
+                                name="email"
+                                value={email} />
+                            <MessageBox open={open} handleAlertClose={() => setOpen(false)} message={error} />
+                            <button onClick={handleSubmit} className="formSubmit" disabled={isInvalid} type="submit">
+                                Start cooking now
                             </button>
+                        </div>
                     </div>
+                </div>
+            </div>
+            <div className="signUpSection_2">
+                <div className="advertiseSection">
+                    <h1>A recipe box full of flavour</h1>
+                    <h2>Your favourite restaurants and takeaways, delivered to your door</h2>
+                    <button className="signUpSectionBtn" type="submit">
+                        Explore
+                    </button>
+                </div>
+                <div className="signUpSection_2_img"></div>
+            </div>
+            <div className="signUpSection_3">
+                <div className="signUpSection_3_img"></div>
+                <div className="advertiseSection">
+                    <h1>Every Flavour Welcome</h1>
+                    <h2>Get it delivered right to your door. Or, try Pickup on your way home. It’s mealtime on your time.</h2>
+                    <button className="signUpSectionBtn" type="submit">
+                        Explore
+                    </button>
                 </div>
             </div>
         </div>

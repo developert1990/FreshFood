@@ -1,4 +1,4 @@
-.SignUpPage {
+.signUpTop {
     margin-top: 100px;
     background-image: url("../../images/background_5.webp");
     background-size: cover;
@@ -45,10 +45,11 @@
 }
 
 .formInput {
+    font-size: 14px;
     background: $whiteColor;
     border-radius: 4px;
     border: 0;
-    color: #333;
+    color: $lightBlack;
     height: 50px;
     line-height: 50px;
     padding: 5px 20px;
@@ -59,8 +60,10 @@
     }
 }
 
-.formSubmit {
-    background: #d6545f;
+}
+
+.formSubmit, .signUpSectionBtn {
+    background: $basePinkColor;
     border-radius: 4px;
     font-size: 16px;
     font-weight: bold;
@@ -75,6 +78,56 @@
     }
 }
 
+.signUpSectionBtn:hover{
+    background-color: $darkPinkColor;
 }
 
+.signUpSection_2{
+    @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@900&display=swap');
+    padding: 50px 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    background-color: white;
+    .advertiseSection{
+        margin-left: 90px;
+    }
+}
 
+.advertiseSection{
+    h1{
+        font-family: "Roboto", sans-serif;
+        font-size: 40px;
+    }
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items:flex-start;
+}
+
+.signUpSection_2_img{
+    width: 100%;
+    height: 500px;
+    background-image: url("../../images/background_9.jpg");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: bottom;
+}
+
+.signUpSection_3{
+    padding-top: 70px;
+    padding-bottom: 100px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    background-color: #FFF0ED;
+}
+
+.signUpSection_3_img{
+    width: 100%;
+    height: 500px;
+    background-image: url("../../images/background_8.jpg");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: bottom;
+}
