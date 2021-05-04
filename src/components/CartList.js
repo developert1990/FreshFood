@@ -26,9 +26,7 @@ export const CartList = ({ anchor, toggleDrawer, cartItems, addToCartAPI, delete
     return (
         <div
             id="Cart"
-            className={clsx(classes.list, {
-                [classes.fullList]: anchor === 'top' || anchor === 'bottom',
-            })}
+            className={clsx(classes.list)}
             role="presentation"
             onKeyDown={toggleDrawer(anchor, false)}
         >
@@ -51,6 +49,7 @@ export const CartList = ({ anchor, toggleDrawer, cartItems, addToCartAPI, delete
                                 cartItems.length === 0 ?
                                     <div className="emptyCart">
                                         <span>Empty..</span>
+                                        <div className="cartLogo"></div>
                                     </div>
                                     : cartItems.map((item, index) => {
                                         const { id, image, price, qty, title } = item;
@@ -83,9 +82,12 @@ export const CartList = ({ anchor, toggleDrawer, cartItems, addToCartAPI, delete
                     </table>
                 </div>
                 <div className="cartBottom">
-                    <Button disabled={isCartEmpty} className="addBtn" size="large" variant="outlined" color="secondary">
-                        Place Order
+                    <div className="orderAndLogo">
+                        <Button disabled={isCartEmpty} className="addBtn" size="large">
+                            Place Order
                     </Button>
+                        <div className={`${isCartEmpty ? "noBike" : "bikeLogo2"}`}></div>
+                    </div>
                     <div className="cartTotalPrice">${totalPrice.toFixed(2)}</div>
                 </div>
             </div>

@@ -27,7 +27,7 @@ export const AddItemCtrolBtn = ({ filteredFood, isActive, addToCartAPI, food, vi
         <>
             {
                 filteredFood.length === 0 ?
-                    <Button className="addBtn" disabled={isActive} size="large" variant="outlined" color="secondary" onClick={() => handleClick(food)}>
+                    <Button className="addBtn" disabled={isActive} size="large" variant="outlined" onClick={() => handleClick(food)}>
                         Add to Cart
                     </Button>
                     :

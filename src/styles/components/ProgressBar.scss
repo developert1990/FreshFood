@@ -1,5 +1,41 @@
 .progressBar {
     position: fixed;
+    top: 0;
+    width: 100%;
+    font-size: 20px;
+}
+
+.animate-navbar {
+    animation: moveDown 0.5s ease-in-out;
+}
+
+@keyframes moveDown {
+    from {
+        transform: translateY(-5rem);
+    }
+
+    to {
+        transform: translateY(0rem);
+    }
+}
+
+.brandName{
+    width: 100%;
+    text-align: center;
+    color: $baseGreenColor;
+}
+
+    .MuiStepper-root {
+        padding-top: 55px;
+        padding-bottom: 10px;
+    }
+
+.MuiPaper-root{
+    background-color: black;
+}
+
+.progressBar {
+    position: fixed;
     z-index: 100;
     top: 0px;
     width: 100%;
@@ -7,7 +43,15 @@
         padding-top: 55px;
         padding-bottom: 10px;
     }
+
+    .MuiStepIcon-root.MuiStepIcon-active {
+        color: $baseGreenColor;
+    }
+    .MuiStepIcon-root.MuiStepIcon-completed {
+        color: $baseGreenColor;
+    }
     .brandName {
+        z-index: 5;
         font-family: "Dancing Script", cursive;
         font-size: 30px;
         position: fixed;
@@ -17,6 +61,7 @@
         padding-top: 10px;
     }
     .navBar {
+        z-index: 6;
         position: fixed;
         top: 12px;
         display: flex;
@@ -30,24 +75,35 @@
             text-decoration: none;
             &:hover {
                 cursor: pointer;
-                color: $basePinkColor;
+                color: $baseGreenColor;
             }
         }
     }
 
-    .MuiStepIcon-root.MuiStepIcon-active {
-        color: $basePinkColor;
-    }
-    .MuiStepIcon-root.MuiStepIcon-completed {
-        color: $basePinkColor;
+    .MuiStepLabel-label{
+        font-size: 15px;
     }
 
     .active {
+        
         &:hover {
             cursor: pointer;
             .MuiStepLabel-label {
-                color: $basePinkColor;
+                color: $baseGreenColor;
             }
         }
     }
+
+    .bikeLogo1 {
+        position: fixed;
+        right: 100px;
+        top: 10px;
+        background-image: url("../../images/bike1.png");
+        background-size: contain;
+        background-repeat: no-repeat;
+        width: 120px;
+        height: 110px;
+    }
+
+
 }

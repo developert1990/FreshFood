@@ -30,8 +30,7 @@ export const ProgressBar = ({ step }) => {
         history.push('/');
     }
     return (
-        <div className="progressBar">
-            <div className="brandName">Fresh Meal Plans</div>
+        <div className="progressBar animate-navbar">
             <ul className="navBar">
                 <Link to="/">HOME</Link>
                 <Link to="/">ABOUT US</Link>
@@ -39,6 +38,7 @@ export const ProgressBar = ({ step }) => {
                 <Link to="/">CONTACT US</Link>
             </ul>
             <div className={classes.root}>
+                <div className="brandName">Fresh Meal Plans</div>
                 <Stepper activeStep={step} alternativeLabel>
                     {steps.map((label, index) => {
                         return (
@@ -51,6 +51,9 @@ export const ProgressBar = ({ step }) => {
                         )
                     })}
                 </Stepper>
+            </div>
+            <div className="brandLogo">
+                <div className="bikeLogo1"></div>
             </div>
         </div>
     )
