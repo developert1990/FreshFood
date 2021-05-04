@@ -19,28 +19,28 @@ export const Footer = () => {
                         </div>
                         <div className="m-2">
                             <a href="https://www.linkedin.com/in/sangmean-hong/" target="_blank" rel="noopener noreferrer">
-                                <Button variant="outline-info" title="Visit my LinkenIn">
+                                <Button variant="outline-success" title="Visit my LinkenIn">
                                     <i className="fab fa-linkedin"></i> LinkedIn
                                 </Button>
                             </a>
                         </div>
                         <div className="m-2">
                             <a href="https://www.facebook.com/sangmean.hong" target="_blank" rel="noopener noreferrer">
-                                <Button variant="outline-primary" title="Say hello on FB">
+                                <Button variant="outline-success" title="Say hello on FB">
                                     <i className="fab fa-facebook-square"></i> FaceBook
                                 </Button>
                             </a>
                         </div>
                         <div className="m-2">
                             <a href="https://github.com/developert1990" target="_blank" rel="noopener noreferrer">
-                                <Button variant="outline-warning" title="My other projects">
+                                <Button variant="outline-success" title="My other projects">
                                     <i className="fab fa-github-square"></i> GitHub
                                 </Button>
                             </a>
                         </div>
                         <div className="m-2">
                             <a href="https://www.instagram.com/hong_ca_/" target="_blank" rel="noopener noreferrer">
-                                <Button variant="outline-danger" title="Tweets are welcomed!">
+                                <Button variant="outline-success" title="Tweets are welcomed!">
                                     <i className="fab fa-instagram-square"></i> Instargram
                                 </Button>
                             </a>

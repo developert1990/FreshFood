@@ -1,32 +1,41 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { useHistory } from 'react-router';
 import { EMAIL_REG_EXP, ZIPCODE_REG_EXP } from '../config';
-import { MessageBox } from '../components/MessageBox';
-import { Button } from '@material-ui/core';
 import { SignUpSubSection } from '../components/SignUpSubSection';
+import Fade from 'react-reveal/Fade';
 
-export const SignUp = ({ signUpAPI, signUpFailAPI, error, step, changeStep, clearAllCartItemsAPI, signUpResetAPI }) => {
+export const SignUp = ({ signUpAPI, signUpFailZipCodeAPI, signUpFailEmailAPI, emailError, zipCodeError, step, changeStep, clearAllCartItemsAPI, signUpResetAPI }) => {
     const [email, setEmail] = useState('');
     const [zipCode, setZipCode] = useState('');
-    const [open, setOpen] = useState(false);
     const history = useHistory();
     const isInvalid = email === '' || zipCode === '';
     const focusInput = useRef();
+    console.log(`emailError: `, emailError)
+    console.log(`zipCodeError: `, zipCodeError)
     const handleSubmit = () => {
-        if (!zipCode.match(ZIPCODE_REG_EXP) || !email.match(EMAIL_REG_EXP)) {
-            signUpFailAPI();
-            setEmail("");
+        if (!zipCode.match(ZIPCODE_REG_EXP)) {
+            signUpFailZipCodeAPI();
             setZipCode("");
             focusInput.current.focus();
-            setOpen(true);
-        } else {
-            signUpAPI(zipCode, email);
-            changeStep(1);
-            history.push('/addItems');
+            setTimeout(() => {
+                signUpResetAPI();
+            }, 2000)
+            return;
         }
-        setTimeout(() => {
-            signUpResetAPI();
-        }, 1000)
+        if (!email.match(EMAIL_REG_EXP)) {
+            signUpFailEmailAPI();
+            setEmail("");
+            focusInput.current.focus();
+            setTimeout(() => {
+                signUpResetAPI();
+            }, 2000)
+            return;
+        }
+        console.log("들어온다")
+        signUpAPI(zipCode, email);
+        changeStep(1);
+        history.push('/addItems');
+
     }
 
     useEffect(() => {
@@ -48,19 +57,28 @@ export const SignUp = ({ signUpAPI, signUpFailAPI, error, step, changeStep, clea
                         <div className="formBase">
                             <input className="formInput"
                                 autoComplete="off"
-                                placeholder="Shipping Zipcode"
+                                placeholder="Shipping Zipcode (ex. A2A2S2)"
                                 onChange={(e) => setZipCode(e.target.value)}
                                 name="zipCode"
                                 value={zipCode}
                                 ref={focusInput} />
+                            {/* {zipCodeError === "" ? "" : <span>{zipCodeError}</span>} */}
+                            <Fade bottom collapse when={zipCodeError !== ""}>
+                                <div className="invalid-feedback" style={{ display: 'block', marginBottom: "30px", marginTop: "1px" }} >
+                                    {zipCodeError}
+                                </div>
+                            </Fade>
                             <input className="formInput"
                                 placeholder="Email Address"
                                 onChange={(e) => setEmail(e.target.value)}
                                 onKeyPress={event => event.key === 'Enter' ? handleSubmit() : null}
                                 name="email"
                                 value={email} />
-                            {error === "" ? "" : <span>{error}</span>}
-                            <MessageBox open={open} handleAlertClose={() => setOpen(false)} message={error} />
+                            <Fade bottom collapse when={emailError !== ""}>
+                                <div className="invalid-feedback" style={{ display: 'block', marginBottom: "30px", marginTop: "1px" }} >
+                                    {emailError}
+                                </div>
+                            </Fade>
                             <button onClick={handleSubmit} className="formSubmit" disabled={isInvalid} type="submit">
                                 Start cooking now
                             </button>
