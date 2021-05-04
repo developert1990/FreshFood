@@ -59,6 +59,7 @@ export const SignUp = ({ signUpAPI, signUpFailZipCodeAPI, signUpFailEmailAPI, em
                                 autoComplete="off"
                                 placeholder="Shipping Zipcode (ex. A2A2S2)"
                                 onChange={(e) => setZipCode(e.target.value)}
+                                onKeyPress={event => event.key === 'Enter' ? handleSubmit() : null}
                                 name="zipCode"
                                 value={zipCode}
                                 ref={focusInput} />

@@ -1,5 +1,6 @@
 
 .addItems {
+    position: relative;
     background-color: $backgroundGrey;
     padding-bottom: 160px;
     .addItemsTitle {
@@ -15,6 +16,7 @@
     }
     .addItemsContents {
         display: flex;
-        justify-content: center;
+        flex-direction: row;
+        justify-content: space-around;
     }
 }

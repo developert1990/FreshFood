@@ -22,11 +22,11 @@ export const Cart = ({ cartItems, addToCartAPI, deleteCartItemAPI }) => {
 
     return (
         <div className="cartDrawerControler">
-            <React.Fragment key="left">
+            <React.Fragment key="right">
                 <StyledBadge badgeContent={cartItems.length} color="secondary">
-                    <Button onClick={toggleDrawer("left", true)}><ShoppingCartOutlinedIcon style={{ fontSize: "35px" }} /></Button>
-                    <Drawer ModalProps={{ disableScrollLock: true }} anchor="left" open={state["left"]} onClose={toggleDrawer("left", false)}>
-                        <CartList anchor="left" toggleDrawer={toggleDrawer} cartItems={cartItems} addToCartAPI={addToCartAPI} deleteCartItemAPI={deleteCartItemAPI} />
+                    <Button onClick={toggleDrawer("right", true)}><ShoppingCartOutlinedIcon style={{ fontSize: "35px" }} /></Button>
+                    <Drawer ModalProps={{ disableScrollLock: true }} anchor="right" open={state["right"]} onClose={toggleDrawer("right", false)}>
+                        <CartList anchor="right" toggleDrawer={toggleDrawer} cartItems={cartItems} addToCartAPI={addToCartAPI} deleteCartItemAPI={deleteCartItemAPI} />
                     </Drawer>
                 </StyledBadge>
             </React.Fragment>
