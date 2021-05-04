@@ -1,5 +1,41 @@
 .progressBar {
     position: fixed;
+    top: 0;
+    width: 100%;
+    font-size: 20px;
+}
+
+.animate-navbar {
+    animation: moveDown 0.5s ease-in-out;
+}
+
+@keyframes moveDown {
+    from {
+        transform: translateY(-5rem);
+    }
+
+    to {
+        transform: translateY(0rem);
+    }
+}
+
+.brandName{
+    width: 100%;
+    text-align: center;
+    color: $baseGreenColor;
+}
+
+    .MuiStepper-root {
+        padding-top: 55px;
+        padding-bottom: 10px;
+    }
+
+.MuiPaper-root{
+    background-color: black;
+}
+
+.progressBar {
+    position: fixed;
     z-index: 100;
     top: 0px;
     width: 100%;
@@ -15,6 +51,7 @@
         color: $baseGreenColor;
     }
     .brandName {
+        z-index: 5;
         font-family: "Dancing Script", cursive;
         font-size: 30px;
         position: fixed;
@@ -24,6 +61,7 @@
         padding-top: 10px;
     }
     .navBar {
+        z-index: 6;
         position: fixed;
         top: 12px;
         display: flex;
@@ -51,14 +89,16 @@
         }
     }
 
-    .bikeLogo {
+    .bikeLogo1 {
         position: fixed;
         right: 100px;
         top: 10px;
-        background-image: url("../../images/bike.png");
+        background-image: url("../../images/bike1.png");
         background-size: contain;
         background-repeat: no-repeat;
-        width: 60px;
-        height: 60px;
+        width: 120px;
+        height: 110px;
     }
+
+
 }

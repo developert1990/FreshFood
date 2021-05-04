@@ -12,7 +12,7 @@ export default () => {
         <BrowserRouter>
             <ProgressBar_HOC />
             <AnimatedSwitch
-                atEnter={{ opacity: 0 }}
+                atEnter={{ opacity: 0.1 }}
                 atLeave={{ opacity: 0 }}
                 atActive={{ opacity: 1 }}
                 className="switch-wrapper"

@@ -1,20 +1,19 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { useHistory } from 'react-router';
-import { EMAIL_REG_EXP } from '../config';
+import { EMAIL_REG_EXP, ZIPCODE_REG_EXP } from '../config';
 import { MessageBox } from '../components/MessageBox';
 import { Button } from '@material-ui/core';
 import { SignUpSubSection } from '../components/SignUpSubSection';
 
-export const SignUp = ({ signUpAPI, signUpFailAPI, error, step, changeStep, clearAllCartItemsAPI }) => {
+export const SignUp = ({ signUpAPI, signUpFailAPI, error, step, changeStep, clearAllCartItemsAPI, signUpResetAPI }) => {
     const [email, setEmail] = useState('');
     const [zipCode, setZipCode] = useState('');
     const [open, setOpen] = useState(false);
     const history = useHistory();
     const isInvalid = email === '' || zipCode === '';
     const focusInput = useRef();
-
     const handleSubmit = () => {
-        if (!email.match(EMAIL_REG_EXP)) {
+        if (!zipCode.match(ZIPCODE_REG_EXP) || !email.match(EMAIL_REG_EXP)) {
             signUpFailAPI();
             setEmail("");
             setZipCode("");
@@ -25,10 +24,13 @@ export const SignUp = ({ signUpAPI, signUpFailAPI, error, step, changeStep, clea
             changeStep(1);
             history.push('/addItems');
         }
+        setTimeout(() => {
+            signUpResetAPI();
+        }, 1000)
     }
 
     useEffect(() => {
-        focusInput.current.focus();
+        focusInput.current.focus({ preventScroll: true });
         if (step === 1) {
             changeStep(-1);
             clearAllCartItemsAPI();
@@ -40,25 +42,24 @@ export const SignUp = ({ signUpAPI, signUpFailAPI, error, step, changeStep, clea
         <div className="SignUpPage">
             <div className="signUpTop">
                 <div className="formWrapper">
-                    {/* <img className="bikeLogo" src="../images/bike.png" alt="" /> */}
                     <div className="form">
                         <h1 className="formTitle">THE MEAL THAT TASTES LIKE NO OTHER</h1>
                         <h2 className="formSubTitle">27 deliciously different meals to inspire the everyday chef.</h2>
                         <div className="formBase">
                             <input className="formInput"
                                 autoComplete="off"
-                                placeholder="Shipping zipcode"
+                                placeholder="Shipping Zipcode"
                                 onChange={(e) => setZipCode(e.target.value)}
                                 name="zipCode"
                                 value={zipCode}
                                 ref={focusInput} />
                             <input className="formInput"
-                                pattern="/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/" required
                                 placeholder="Email Address"
                                 onChange={(e) => setEmail(e.target.value)}
                                 onKeyPress={event => event.key === 'Enter' ? handleSubmit() : null}
                                 name="email"
                                 value={email} />
+                            {error === "" ? "" : <span>{error}</span>}
                             <MessageBox open={open} handleAlertClose={() => setOpen(false)} message={error} />
                             <button onClick={handleSubmit} className="formSubmit" disabled={isInvalid} type="submit">
                                 Start cooking now

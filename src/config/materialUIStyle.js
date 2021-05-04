@@ -18,7 +18,7 @@ export const useStyles = makeStyles((theme) => ({
         marginTop: theme.spacing(0),
     },
     list: {
-        width: 500,
+        width: 520,
     },
     fullList: {
         width: 'auto',

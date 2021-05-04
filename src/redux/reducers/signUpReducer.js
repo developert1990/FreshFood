@@ -1,4 +1,4 @@
-import { SIGNUP_FAIL, SIGNUP_SUCCESS } from '../constants/signUpConstant';
+import { SIGNUP_FAIL, SIGNUP_RESET, SIGNUP_SUCCESS } from '../constants/signUpConstant';
 
 export const signUpInitialState = {
     error: "",
@@ -11,6 +11,8 @@ export const signUpReducer = (state = signUpInitialState, action) => {
             return { ...state, userData: action.payload };
         case SIGNUP_FAIL:
             return { ...state, error: action.payload };
+        case SIGNUP_RESET:
+            return { ...state, error: "" };
         default:
             return state;
     }
