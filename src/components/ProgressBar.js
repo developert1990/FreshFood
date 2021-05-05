@@ -2,9 +2,10 @@ import React from 'react';
 import Stepper from '@material-ui/core/Stepper';
 import Step from '@material-ui/core/Step';
 import StepLabel from '@material-ui/core/StepLabel';
-import { useHistory } from 'react-router';
+import { useHistory, useLocation } from 'react-router';
 import { makeStyles } from '@material-ui/core/styles';
 import { Link } from 'react-router-dom';
+import { Cart } from './Cart';
 function getSteps() {
     return ['Sign-Up for your food', 'Select Items', 'Order'];
 }
@@ -22,10 +23,12 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 
-export const ProgressBar = ({ step }) => {
+export const ProgressBar = ({ step, cartItems, addToCartAPI, deleteCartItemAPI }) => {
     const classes = useStyles();
     const history = useHistory();
     const steps = getSteps();
+    const location = useLocation();
+    console.log(`location: `, location.pathname);
     const handleClick = () => {
         history.push('/');
     }
@@ -54,6 +57,10 @@ export const ProgressBar = ({ step }) => {
             </div>
             <div className="brandLogo">
                 <div className="bikeLogo1"></div>
+                {
+                    location.pathname !== "/" &&
+                    <Cart cartItems={cartItems} addToCartAPI={addToCartAPI} deleteCartItemAPI={deleteCartItemAPI} />
+                }
             </div>
         </div>
     )

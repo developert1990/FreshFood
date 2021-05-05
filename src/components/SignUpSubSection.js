@@ -11,7 +11,7 @@ export const SignUpSubSection = () => {
                         <h2>Your favourite restaurants and takeaways, delivered to your door</h2>
                         <button className="signUpSectionBtn" type="submit">
                             Explore
-                    </button>
+                        </button>
                     </div>
                     <div className="signUpSection_2_img"></div>
                 </div>
@@ -24,7 +24,7 @@ export const SignUpSubSection = () => {
                         <h2>Get it delivered right to your door. Or, try Pickup on your way home. It’s mealtime on your time.</h2>
                         <button className="signUpSectionBtn" type="submit">
                             Explore
-                    </button>
+                        </button>
                     </div>
                 </div>
             </Fade>

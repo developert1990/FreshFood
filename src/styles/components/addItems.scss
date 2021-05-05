@@ -1,7 +1,4 @@
 .addItemsBlank {
-    width: 160px;
-    // height: 1000px;
-    background-color: red;
 }
 
 .addItems {
@@ -30,7 +27,6 @@
         display: block;
         position: sticky;
         top: 160px;
-        z-index: 300;
         overflow-y: scroll;
         -ms-overflow-style: none;
         height: 550px;
@@ -51,13 +47,13 @@
         justify-content: center;
         align-items: center;
         .addItemsTitle {
-            // @import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@1,500&display=swap");
             display: flex;
             justify-content: center;
             align-items: center;
             padding-top: 40px;
             margin-bottom: 50px;
-            font-family: "Roboto", sans-serif;
+            font-family: 'Itim', cursive;
+            font-weight: bolder;
             font-size: 32px;
         }
     }
