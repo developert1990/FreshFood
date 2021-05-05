@@ -1,22 +1,64 @@
+.addItemsBlank {
+    width: 160px;
+    // height: 1000px;
+    background-color: red;
+}
 
 .addItems {
     position: relative;
-    background-color: $backgroundGrey;
-    padding-bottom: 160px;
-    .addItemsTitle {
-        @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@1,500&display=swap');
+    padding: 50px;
+    width: 100%;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    margin: 0 auto;
+    .addItemsInner {
+        position: relative;
+        padding: 50px;
+        width: 100%;
         display: flex;
+        align-items: flex-start;
+        justify-content: center;
+        margin: 0 auto;
+        margin-top: 50px;
+    }
+
+    .addItemsLeft {
+        border-radius: 10px;
+        flex-grow: 0;
+        flex-shrink: 0;
+        display: block;
+        position: sticky;
+        top: 160px;
+        z-index: 300;
+        overflow-y: scroll;
+        -ms-overflow-style: none;
+        height: 550px;
+        background-color: $whiteColor;
+        -moz-box-shadow: 0 6px 24px 0 rgba(0, 0, 0, 0.3);
+        -webkit-box-shadow: 0 6px 24px 0 rgba(0, 0, 0, 0.3);
+        box-shadow: 0 6px 24px 0 rgba(0, 0, 0, 0.3);
+    }
+    .addItemsLeft::-webkit-scrollbar {
+        display: none;
+        width: 0 !important;
+    }
+
+    .addItemsRight {
+        margin-left: 50px;
+        display: flex;
+        flex-direction: column;
         justify-content: center;
         align-items: center;
-        margin-top: 110px;
-        padding-top: 40px;
-        margin-bottom: 50px;
-        font-family: 'Roboto', sans-serif;
-        font-size: 32px;
-    }
-    .addItemsContents {
-        display: flex;
-        flex-direction: row;
-        justify-content: space-around;
+        .addItemsTitle {
+            // @import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@1,500&display=swap");
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding-top: 40px;
+            margin-bottom: 50px;
+            font-family: "Roboto", sans-serif;
+            font-size: 32px;
+        }
     }
 }

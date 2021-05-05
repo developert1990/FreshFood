@@ -30,9 +30,9 @@ export const CartInnerList = ({ cartItems, addToCartAPI, deleteCartItemAPI }) =>
                 <table>
                     <thead>
                         <tr>
-                            <th>Items</th>
-                            <th>Quantity</th>
-                            <th>Price</th>
+                            <th className="head1">Items</th>
+                            <th className="head2">Quantity</th>
+                            <th className="head3">Price</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -60,7 +60,7 @@ export const CartInnerList = ({ cartItems, addToCartAPI, deleteCartItemAPI }) =>
                                                     <AddCircleIcon fontSize="small" />
                                                 </IconButton>
                                             </td>
-                                            <td>${(price * qty).toFixed(2)}</td>
+                                            <td className="price">${(price * qty).toFixed(2)}</td>
                                             <td>
                                                 <IconButton aria-label="delete" className="deleteBtn" onClick={() => handleDelete({ id })}>
                                                     <RiDeleteBin7Line className="deleteBtn" />

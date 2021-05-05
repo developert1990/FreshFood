@@ -11,17 +11,17 @@ export const AddItems = ({ fetchAllAPI, isLoading, foods, error, addToCartAPI, c
     }, [])
     return (
         <div className="addItems">
-            <h1 className="addItemsTitle">Fresh-Meals to Your Door</h1>
-            <div className="addItemsContents">
-                {/* <Zoom> */}
-
-                <ItemCard foods={foods} addToCartAPI={addToCartAPI} cartItems={cartItems} />
-                <div className="outerPageCart">
+            <div className="addItemsInner">
+                <div className="addItemsLeft">
                     <PageCart cartItems={cartItems} addToCartAPI={addToCartAPI} deleteCartItemAPI={deleteCartItemAPI} />
                 </div>
-                {/* </Zoom> */}
-                <Cart cartItems={cartItems} addToCartAPI={addToCartAPI} deleteCartItemAPI={deleteCartItemAPI} />
+                <div className="addItemsRight">
+                    <h1 className="addItemsTitle">Fresh-Meals to Your Door</h1>
+                    <ItemCard foods={foods} addToCartAPI={addToCartAPI} cartItems={cartItems} />
 
+                </div>
+                <div className="addItemsBlank"></div>
+                <Cart cartItems={cartItems} addToCartAPI={addToCartAPI} deleteCartItemAPI={deleteCartItemAPI} />
             </div>
         </div>
     )
