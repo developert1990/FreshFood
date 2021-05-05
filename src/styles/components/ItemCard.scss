@@ -2,6 +2,8 @@
     font-family: "Source Sans Pro", Verdana, Helvetica, Arial, Tahoma, sans-serif;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
+    // margin-left: 300px;
+    
     .foodName {
         margin: 20px;
         text-align: center;
@@ -14,7 +16,7 @@
         display: block;
         text-decoration: none;
         margin: 0 50px 35px 0;
-        width: 300px;
+        width: 280px;
         margin-right: 20px;
     }
 

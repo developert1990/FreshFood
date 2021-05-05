@@ -3,6 +3,8 @@ import { useHistory } from 'react-router';
 import { EMAIL_REG_EXP, ZIPCODE_REG_EXP } from '../config';
 import { SignUpSubSection } from '../components/SignUpSubSection';
 import Fade from 'react-reveal/Fade';
+import Roll from 'react-reveal/Roll';
+import { Footer } from '../components/Footer';
 
 export const SignUp = ({ signUpAPI, signUpFailZipCodeAPI, signUpFailEmailAPI, emailError, zipCodeError, step, changeStep, clearAllCartItemsAPI, signUpResetAPI }) => {
     const [email, setEmail] = useState('');
@@ -59,6 +61,7 @@ export const SignUp = ({ signUpAPI, signUpFailZipCodeAPI, signUpFailEmailAPI, em
                                 autoComplete="off"
                                 placeholder="Shipping Zipcode (ex. A2A2S2)"
                                 onChange={(e) => setZipCode(e.target.value)}
+                                onKeyPress={event => event.key === 'Enter' ? handleSubmit() : null}
                                 name="zipCode"
                                 value={zipCode}
                                 ref={focusInput} />
@@ -87,6 +90,9 @@ export const SignUp = ({ signUpAPI, signUpFailZipCodeAPI, signUpFailEmailAPI, em
                 </div>
             </div>
             <SignUpSubSection />
+            <Roll left>
+                <Footer />
+            </Roll>
         </div>
     )
 }

@@ -95,14 +95,11 @@
 
 .signUpSection_2{
     @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@900&display=swap');
-    padding: 50px 0;
+    
     display: flex;
     flex-direction: row;
     justify-content: space-around;
     background-color: white;
-    .advertiseSection{
-        margin-left: 90px;
-    }
 }
 
 .advertiseSection{
@@ -114,10 +111,11 @@
     flex-direction: column;
     justify-content: center;
     align-items:flex-start;
+    width: 500px;
 }
 
 .signUpSection_2_img{
-    width: 100%;
+    width: 700px;
     height: 500px;
     background-image: url("../../images/background_9.jpg");
     background-size: contain;
@@ -135,7 +133,7 @@
 }
 
 .signUpSection_3_img{
-    width: 100%;
+    width: 700px;
     height: 500px;
     background-image: url("../../images/background_8.jpg");
     background-size: contain;

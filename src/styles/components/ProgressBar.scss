@@ -1,8 +1,5 @@
-.progressBar {
-    position: fixed;
-    top: 0;
-    width: 100%;
-    font-size: 20px;
+.routeOuter{
+    position: relative;
 }
 
 .animate-navbar {
@@ -36,7 +33,7 @@
 
 .progressBar {
     position: fixed;
-    z-index: 100;
+    z-index: 10;
     top: 0px;
     width: 100%;
     .MuiStepper-root {
