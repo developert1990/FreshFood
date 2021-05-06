@@ -1,4 +1,4 @@
-.routeOuter{
+.routeOuter {
     position: relative;
 }
 
@@ -16,18 +16,18 @@
     }
 }
 
-.brandName{
+.brandName {
     width: 100%;
     text-align: center;
     color: $baseGreenColor;
 }
 
-    .MuiStepper-root {
-        padding-top: 55px;
-        padding-bottom: 10px;
-    }
+.MuiStepper-root {
+    padding-top: 55px;
+    padding-bottom: 10px;
+}
 
-.MuiPaper-root{
+.MuiPaper-root {
     background-color: black;
 }
 
@@ -41,6 +41,9 @@
         padding-bottom: 10px;
     }
 
+    .MuiStepIcon-text {
+        font-size: 1.2rem !important;
+    }
     .MuiStepIcon-root.MuiStepIcon-active {
         color: $baseGreenColor;
     }
@@ -77,12 +80,11 @@
         }
     }
 
-    .MuiStepLabel-label{
+    .MuiStepLabel-label {
         font-size: 15px;
     }
 
     .active {
-        
         &:hover {
             cursor: pointer;
             .MuiStepLabel-label {
@@ -101,6 +103,4 @@
         width: 120px;
         height: 110px;
     }
-
-
 }

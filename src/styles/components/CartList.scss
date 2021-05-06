@@ -18,7 +18,7 @@
     font-family: "Roboto", sans-serif;
     position: fixed;
     top: 0;
-    z-index: 200;
+    z-index: 100;
     padding: 20px;
     background-color: $whiteColor;
     width: 470px;
@@ -162,5 +162,21 @@ td:nth-child(1) {
 
 .cartTotalPrice {
     font-family: "Krona One", sans-serif;
+}
+.closeCart.MuiSvgIcon-root{
+    position: fixed;
+    top: 10px;
+    width: 35px;
+    height: 35px;
+    right: 512px;
+    z-index: 201;
+    padding: 5px;
+    
+    &:hover{
+        color: $whiteColor;
+        cursor: pointer;
+        background-color: $baseGreenColor;
+        border-radius: 50%;
+    }
 }
 }
