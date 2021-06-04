@@ -3,6 +3,7 @@ import { addToCartAction } from '../redux/actions/addToCartAction';
 import { deleteCartItemAction } from '../redux/actions/deleteCartItemAction';
 import { getAllItemAction } from '../redux/actions/getAllItemAction';
 
+// separation of concerns
 export const useItems = () => {
     const getAllItemStore = useSelector((state) => state.getAllItemStore);
     const cartStore = useSelector((state) => state.cartStore);
