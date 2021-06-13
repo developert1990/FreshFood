@@ -71,7 +71,7 @@ export const PageCart = ({ cartItems, addToCartAPI, deleteCartItemAPI }) => {
                     <div className="orderAndLogo">
                         <Button disabled={isCartEmpty} className="addBtn" size="large">
                             Place Order
-                    </Button>
+                        </Button>
                         <div className={`${isCartEmpty ? "noBike" : "bikeLogo2"}`}></div>
                     </div>
                     <div className="cartTotalPrice">${totalPrice.toFixed(2)}</div>

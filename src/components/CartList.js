@@ -1,10 +1,10 @@
 import React from 'react'
 import clsx from 'clsx';
 import { useStyles } from '../config/materialUIStyle';
-import { CartInnerList } from './CartInnerList';
+import { CartInnerList } from '../components/CartInnerList';
 import CloseIcon from '@material-ui/icons/Close';
 
-export const CartList = ({ anchor, toggleDrawer, cartItems, addToCartAPI, deleteCartItemAPI }) => {
+export const CartList = ({ anchor, toggleDrawer }) => {
     const classes = useStyles();
     return (
         <div
@@ -13,7 +13,7 @@ export const CartList = ({ anchor, toggleDrawer, cartItems, addToCartAPI, delete
             role="presentation"
             onKeyDown={toggleDrawer(anchor, false)}
         >
-            <CartInnerList cartItems={cartItems} addToCartAPI={addToCartAPI} deleteCartItemAPI={deleteCartItemAPI} />
+            <CartInnerList />
 
             <CloseIcon className="closeCart" onClick={toggleDrawer("right", false)} />
         </div>

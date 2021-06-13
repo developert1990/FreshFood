@@ -5,7 +5,7 @@ import ShoppingCartOutlinedIcon from '@material-ui/icons/ShoppingCartOutlined';
 import { StyledBadge } from '../../config/materialUIStyle';
 import { CartList } from '../CartList';
 
-export const Cart = ({ cartItems, addToCartAPI, deleteCartItemAPI }) => {
+export const Cart = ({ cartItems }) => {
     const [state, setState] = React.useState({
         top: false,
         left: false,
@@ -26,7 +26,7 @@ export const Cart = ({ cartItems, addToCartAPI, deleteCartItemAPI }) => {
                 <StyledBadge badgeContent={cartItems.length} color="secondary">
                     <Button onClick={toggleDrawer("right", true)}><ShoppingCartOutlinedIcon style={{ fontSize: "35px" }} /></Button>
                     <Drawer ModalProps={{ disableScrollLock: true }} anchor="right" open={state["right"]} onClose={toggleDrawer("right", false)}>
-                        <CartList anchor="right" toggleDrawer={toggleDrawer} cartItems={cartItems} addToCartAPI={addToCartAPI} deleteCartItemAPI={deleteCartItemAPI} />
+                        <CartList anchor="right" toggleDrawer={toggleDrawer} />
                     </Drawer>
                 </StyledBadge>
             </React.Fragment>

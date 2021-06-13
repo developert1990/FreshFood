@@ -1,5 +1,5 @@
 import withHook from 'hook-hoc';
-import { useStep } from '../../hooks/useStep';
-import Component from './Cart';
+import { useCart } from '../../hooks/useCart';
+import { Cart as Component } from './Cart';
 
-export const Cart = withHook(useStep)(Component);
+export const Cart = withHook(useCart)(Component);

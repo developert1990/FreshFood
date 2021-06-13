@@ -8,5 +8,5 @@ export const useCart = () => {
     const dispatch = useDispatch();
     const addToCartAPI = ({ id, image, title, price, qty }) => dispatch(addToCartAction({ id, image, title, price, qty }));
     const deleteCartItemAPI = ({ id }) => dispatch(deleteCartItemAction({ id }));
-    return {};
+    return { cartItems, addToCartAPI, deleteCartItemAPI };
 }

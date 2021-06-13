@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import { Card } from "react-bootstrap";
-import { getNutrition } from '../libs/getNutrition';
-import { Nutrition } from './Nutrition';
-import { checkVitaminInCart } from '../libs/checkVitaminInCart';
-import { AddItemCtrolBtn } from './AddItemCtrolBtn';
-import { VitaminSelection } from './VitaminSelection';
+import { getNutrition } from '../../libs/getNutrition';
+import { Nutrition } from '../Nutrition';
+import { checkVitaminInCart } from '../../libs/checkVitaminInCart';
+import { AddItemCtrolBtn } from '../AddItemCtrolBtn';
+import { VitaminSelection } from '../VitaminSelection';
 
 export const ItemCard = ({ foods, addToCartAPI, cartItems }) => {
     const [vitamin, setVitamin] = useState({
