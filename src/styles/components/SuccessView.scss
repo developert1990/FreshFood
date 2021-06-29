@@ -1,0 +1,29 @@
+.successView {
+    width: "100%";
+    height: 100vh;
+    background-color: $baseGreenColor;
+    color: $backgroundGrey;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .sign{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    .checkSign{
+        background-color: $baseLightGreenColor;
+        border-radius: 50%;
+    }
+    .MuiSvgIcon-root{
+        font-size: 150px;
+    }
+
+    .successMsg {
+        font-size: 20px;
+        padding: 30px;
+        font-weight: bolder;
+    }
+}

@@ -4,8 +4,8 @@ import Step from '@material-ui/core/Step';
 import StepLabel from '@material-ui/core/StepLabel';
 import { useHistory, useLocation } from 'react-router';
 import { makeStyles } from '@material-ui/core/styles';
-import { Link } from 'react-router-dom';
 import { Cart } from '../components/Cart/index';
+import { Navigation } from './Navigation/Navigation';
 
 function getSteps() {
     return ['Sign-Up for your food', 'Select Items', 'Order'];
@@ -35,12 +35,7 @@ export const ProgressBar = ({ step }) => {
     }
     return (
         <div className="progressBar animate-navbar">
-            <ul className="navBar">
-                <Link to="/">HOME</Link>
-                <Link to="/">ABOUT US</Link>
-                <Link to="/">SERVICES</Link>
-                <Link to="/">CONTACT US</Link>
-            </ul>
+            <Navigation />
             <div className={classes.root}>
                 <div className="brandName">Fresh Meal Plans</div>
                 <Stepper activeStep={step} alternativeLabel>

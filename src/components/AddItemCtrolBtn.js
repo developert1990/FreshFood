@@ -22,7 +22,6 @@ export const AddItemCtrolBtn = ({ filteredFood, isActive, addToCartAPI, food, vi
         }
     }
 
-
     return (
         <>
             {

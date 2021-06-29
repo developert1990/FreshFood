@@ -3,8 +3,8 @@ import { useSelector } from 'react-redux';
 import { Redirect, Route } from 'react-router-dom';
 
 export const PrivateRoute = ({ component: Component, ...rest }) => {
-    const signUpStore = useSelector((state) => state.signUpStore);
-    const { userData } = signUpStore;
+    const { userData } = useSelector((state) => state.signUpStore);
+    console.log('userData :>> ', userData);
     return (
         <Route
             {...rest}
