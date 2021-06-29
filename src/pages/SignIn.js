@@ -5,7 +5,7 @@ import { LoadingBox } from '../components/LoadingBox';
 import { ErrorMessage } from '../components/ErrorMessage';
 import { SIGN_IN_RESET } from '../redux/constants/signInConstant';
 
-export const SignIn = ({ loading, userInfo, err, signInAPI }) => {
+export const SignIn = ({ loading, userInfo, err, signInAPI, authUser }) => {
 
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
@@ -28,6 +28,7 @@ export const SignIn = ({ loading, userInfo, err, signInAPI }) => {
 
     useEffect(() => {
         if (userInfo) {
+            authUser();
             setTimeout(() => {
                 history.push('/success');
             }, 1000);
@@ -35,7 +36,7 @@ export const SignIn = ({ loading, userInfo, err, signInAPI }) => {
                 history.push('/');
             }, 3000)
         }
-    }, [history, signInAPI, userInfo])
+    }, [authUser, history, signInAPI, userInfo])
 
     const handleSignIn = () => {
         signInAPI({ email, password });

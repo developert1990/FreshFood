@@ -8,6 +8,7 @@ import { registerReducer } from './redux/reducers/registerReducer';
 import { signInReducer } from './redux/reducers/signInReducer';
 import { signUpReducer } from './redux/reducers/signUpReducer';
 import { stepReducer } from './redux/reducers/stepReducer';
+import { userAuthReducer } from './redux/reducers/userAuthReducer';
 
 const rootReducer = combineReducers({
     signUpStore: signUpReducer,
@@ -16,6 +17,7 @@ const rootReducer = combineReducers({
     cartStore: cartReducer,
     registerStore: registerReducer,
     signInStore: signInReducer,
+    userStore: userAuthReducer,
 });
 
 export const store = createStore(rootReducer, {}, composeWithDevTools(applyMiddleware(promise, thunk)));

@@ -4,6 +4,11 @@ import { registerValidation } from '../libs/registerValidation';
 import { ErrorMessage } from '../components/ErrorMessage';
 import { LoadingBox } from '../components/LoadingBox';
 import { useEffect } from 'react';
+import { PasswordValidBox } from '../components/PasswordValidBox';
+import useOutsideDetect from '../hooks/useOutsideDetect';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons'
+import { passwordCondition } from '../libs/passwordCondition';
 
 export const Register = ({ registerAPI, loading, userInfo, error, registerResetAPI }) => {
 
@@ -11,13 +16,25 @@ export const Register = ({ registerAPI, loading, userInfo, error, registerResetA
     const [lastName, setLastName] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    const [pwConvention, setPwConvention] = useState({
+        first: false,
+        second: false,
+        third: false,
+        forth: false,
+    });
+    const [pwCondition_first, setPwCondition_first] = useState(false);
+    const [pwCondition_second, setPwCondition_second] = useState(false);
+    const [pwCondition_third, setPwCondition_third] = useState(false);
+    const [pwCondition_forth, setPwCondition_forth] = useState(false);
     const [confirmPassword, setConfirmPassword] = useState('');
+    const { ref, isComponentVisible } = useOutsideDetect(false);
     const [inputError, setInputError] = useState({
         firstNameError: '',
         lastNameError: '',
         emailError: '',
         passwordError: '',
     });
+    const [show, setShow] = useState(false);
     const location = useLocation();
     const history = useHistory();
     const redirect = location.search ? location.search.split("=")[1] : '/';
@@ -25,7 +42,10 @@ export const Register = ({ registerAPI, loading, userInfo, error, registerResetA
     const isInvalid = firstName === '' || lastName === '' || password === '' || email === '' || confirmPassword === '';
 
     const handleSignup = () => {
-        const result = registerValidation({ firstName, lastName, email, password, confirmPassword });
+        const obj = {
+            pwCondition_first, pwCondition_second, pwCondition_third, pwCondition_forth
+        }
+        const result = registerValidation({ firstName, lastName, email, password, confirmPassword, obj });
         // if validating fail
         if (result) {
             const { type, error } = result;
@@ -42,13 +62,15 @@ export const Register = ({ registerAPI, loading, userInfo, error, registerResetA
                 case 'password':
                     setInputError({ firstNameError: '', lastNameError: '', emailError: '', passwordError: error });
                     break;
+                case 'pwCodition':
+                    setInputError({ firstNameError: '', lastNameError: '', emailError: '', passwordError: error });
+                    break;
                 default:
                     return;
             }
             // if validating success
         } else {
             registerAPI({ firstName, lastName, email, password });
-
 
         }
         setTimeout(() => {
@@ -59,6 +81,15 @@ export const Register = ({ registerAPI, loading, userInfo, error, registerResetA
                 passwordError: '',
             });
         }, 1500);
+    }
+
+    const handlePwChange = (value) => {
+        console.log('pwCondition_first :>> ', pwCondition_first);
+        console.log('pwCondition_second :>> ', pwCondition_second);
+        console.log('pwCondition_third :>> ', pwCondition_third);
+        console.log('pwCondition_forth :>> ', pwCondition_forth);
+        setPassword(value);
+        passwordCondition(value, setPwCondition_first, setPwCondition_second, setPwCondition_third, setPwCondition_forth);
     }
 
     useEffect(() => {
@@ -75,7 +106,12 @@ export const Register = ({ registerAPI, loading, userInfo, error, registerResetA
                 history.push(`/signin?redirect=${email}`);
             }, 3000);
         }
-    }, [email, error, history, registerResetAPI, userInfo])
+    }, [email, error, history, registerResetAPI, userInfo]);
+
+    const handleShowHide = () => {
+        setShow(!show);
+    }
+
     return (
         <>
             <div className="signup">
@@ -100,11 +136,17 @@ export const Register = ({ registerAPI, loading, userInfo, error, registerResetA
                             onChange={({ target }) => setEmail(target.value)} />
                         <ErrorMessage codeError={inputError.emailError} />
                         <input className="form__input"
-                            type="password"
+                            type={show ? "text" : "password"}
                             value={password}
                             autoComplete="off"
                             placeholder="Password"
-                            onChange={({ target }) => setPassword(target.value)} />
+                            onChange={({ target }) => handlePwChange(target.value)}
+                            ref={ref} />
+                        {
+                            show ?
+                                <FontAwesomeIcon icon={faEye} id="show_hide" onClick={handleShowHide} /> :
+                                <FontAwesomeIcon icon={faEyeSlash} id="show_hide" onClick={handleShowHide} />}
+                        {isComponentVisible && <PasswordValidBox />}
                         <input className="form__input"
                             type="password"
                             value={confirmPassword}
