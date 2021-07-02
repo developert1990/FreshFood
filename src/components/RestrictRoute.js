@@ -1,13 +1,13 @@
 import React from 'react';
-import { useSelector } from 'react-redux';
 import { Redirect, Route } from 'react-router-dom';
 
-export const PrivateRoute = ({ component: Component, ...rest }) => {
-    const { userData } = useSelector((state) => state.signUpStore);
+export const RestrictRoute = ({ component: Component, ...rest }) => {
+    const registerInfo = sessionStorage.getItem('register');
+    console.log('registerInfo :>> ', registerInfo);
     return (
         <Route
             {...rest}
-            render={(props) => userData ? (
+            render={(props) => registerInfo ? (
                 <Component {...props}></Component>
             ) : (
                 <Redirect to="/" />

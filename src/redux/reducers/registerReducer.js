@@ -2,7 +2,7 @@ import { REGISTER_FAIL, REGISTER_REQUEST, REGISTER_RESET, REGISTER_SUCCESS } fro
 
 const initialState = {
     loading: false,
-    userInfo: undefined,
+    result: undefined,
     error: '',
 };
 
@@ -11,7 +11,8 @@ export const registerReducer = (state = initialState, action) => {
         case REGISTER_REQUEST:
             return { ...state, loading: true }
         case REGISTER_SUCCESS:
-            return { ...state, loading: false, userInfo: action.payload };
+            sessionStorage.setItem('register', action.email);
+            return { ...state, loading: false, result: action.payload };
         case REGISTER_FAIL:
             return { ...state, loading: false, error: action.payload };
         case REGISTER_RESET:

@@ -10,7 +10,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons'
 import { passwordCondition } from '../libs/passwordCondition';
 
-export const Register = ({ registerAPI, loading, userInfo, error, registerResetAPI }) => {
+export const Register = ({ registerAPI, loading, result, error, registerResetAPI }) => {
 
     const [firstName, setFirstName] = useState('');
     const [lastName, setLastName] = useState('');
@@ -70,7 +70,7 @@ export const Register = ({ registerAPI, loading, userInfo, error, registerResetA
             }
             // if validating success
         } else {
-            registerAPI({ firstName, lastName, email, password });
+            registerAPI({ firstName, lastName, email, password }, history);
 
         }
         setTimeout(() => {
@@ -84,29 +84,17 @@ export const Register = ({ registerAPI, loading, userInfo, error, registerResetA
     }
 
     const handlePwChange = (value) => {
-        console.log('pwCondition_first :>> ', pwCondition_first);
-        console.log('pwCondition_second :>> ', pwCondition_second);
-        console.log('pwCondition_third :>> ', pwCondition_third);
-        console.log('pwCondition_forth :>> ', pwCondition_forth);
         setPassword(value);
         passwordCondition(value, setPwCondition_first, setPwCondition_second, setPwCondition_third, setPwCondition_forth);
     }
 
     useEffect(() => {
         if (error !== '') {
-            console.log('에러가 발생함');
             setTimeout(() => {
                 registerResetAPI();
             }, 1500);
-        } else if (userInfo) {
-            setTimeout(() => {
-                history.push('/success');
-            }, 1000);
-            setTimeout(() => {
-                history.push(`/signin?redirect=${email}`);
-            }, 3000);
         }
-    }, [email, error, history, registerResetAPI, userInfo]);
+    }, [error, registerResetAPI]);
 
     const handleShowHide = () => {
         setShow(!show);

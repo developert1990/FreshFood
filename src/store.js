@@ -9,6 +9,7 @@ import { signInReducer } from './redux/reducers/signInReducer';
 import { signUpReducer } from './redux/reducers/signUpReducer';
 import { stepReducer } from './redux/reducers/stepReducer';
 import { userAuthReducer } from './redux/reducers/userAuthReducer';
+import { verifyCodeReducer } from './redux/reducers/verifyCodeReducer';
 
 const rootReducer = combineReducers({
     signUpStore: signUpReducer,
@@ -18,6 +19,7 @@ const rootReducer = combineReducers({
     registerStore: registerReducer,
     signInStore: signInReducer,
     userStore: userAuthReducer,
+    verifyUserStore: verifyCodeReducer,
 });
 
 export const store = createStore(rootReducer, {}, composeWithDevTools(applyMiddleware(promise, thunk)));

@@ -16,8 +16,10 @@ export default function useOutsideDetect(initialIsVisible) {
 
     useEffect(() => {
         document.addEventListener('click', handleClickOutside, true);
+        document.addEventListener('focus', handleClickOutside, true);
         return () => {
             document.removeEventListener('click', handleClickOutside, true);
+            document.removeEventListener('focus', handleClickOutside, true);
         };
     });
 

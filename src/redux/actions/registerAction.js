@@ -1,13 +1,21 @@
 import { REGISTER_FAIL, REGISTER_REQUEST, REGISTER_SUCCESS } from '../constants/registerConstant';
 import axios from 'axios';
 
-export const registerAction = (userInfo) => async (dispatch) => {
+export const registerAction = (userInfo, history) => async (dispatch) => {
     dispatch({ type: REGISTER_REQUEST });
     console.log('userInfo :>> ', userInfo);
     try {
-        console.log('process.env.REACT_APP_LAMBDA_API :>> ', process.env.REACT_APP_LAMBDA_API);
         const result = await axios.put(`${process.env.REACT_APP_EXPRESS_LOCAL}/api/user`, userInfo);
-        dispatch({ type: REGISTER_SUCCESS, payload: result });
+        dispatch({ type: REGISTER_SUCCESS, payload: result.data.body, email: userInfo.email });
+        setTimeout(() => {
+            console.log('석세스');
+            history.push('/success');
+        }, 1000);
+        setTimeout(() => {
+            console.log('베리파이페이지로 히스토리');
+            history.push(`/verifyCode?email=${userInfo.email}`);
+        }, 3000);
+
     } catch (error) {
         dispatch({
             type: REGISTER_FAIL,
@@ -15,7 +23,8 @@ export const registerAction = (userInfo) => async (dispatch) => {
                 error.response && error.response.data.message
                     ? error.response.data.message
                     : error.message
-        })
+        });
+
     }
 
 }
