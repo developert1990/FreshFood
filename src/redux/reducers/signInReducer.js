@@ -1,4 +1,4 @@
-import { SIGN_IN_FAIL, SIGN_IN_REQUEST, SIGN_IN_SUCCESS, SIGN_IN_RESET } from '../constants/signInConstant';
+import { SIGN_IN_FAIL, SIGN_IN_REQUEST, SIGN_IN_SUCCESS, SIGN_IN_RESET, SIGN_OUT_FAIL } from '../constants/signInConstant';
 
 const initialState = {
     loading: false,
@@ -16,6 +16,8 @@ export const signInReducer = (state = initialState, action) => {
             return { ...state, loading: false, err: action.payload }
         case SIGN_IN_RESET:
             return initialState;
+        case SIGN_OUT_FAIL:
+            return { ...state, loading: false, err: action.payload }
         default:
             return state;
     }

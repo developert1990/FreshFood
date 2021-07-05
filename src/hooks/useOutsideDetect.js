@@ -11,6 +11,7 @@ export default function useOutsideDetect(initialIsVisible) {
         } else {
             // detect inside of specified component
             setIsComponentVisible(true);
+            // setIsComponentVisible(!isComponentVisible);
         }
     };
 

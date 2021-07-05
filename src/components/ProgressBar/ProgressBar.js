@@ -4,8 +4,10 @@ import Step from '@material-ui/core/Step';
 import StepLabel from '@material-ui/core/StepLabel';
 import { useHistory, useLocation } from 'react-router';
 import { makeStyles } from '@material-ui/core/styles';
-import { Cart } from '../components/Cart/index';
-import { Navigation_HOC } from './Navigation/';
+import { Cart } from '../Cart/index';
+import { Navigation_HOC } from '../Navigation';
+import { NavAvatar } from '../Avatar/NavAvatar';
+import { useEffect } from 'react';
 
 function getSteps() {
     return ['Sign-Up for your food', 'Select Items', 'Order'];
@@ -24,7 +26,7 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 
-export const ProgressBar = ({ step }) => {
+export const ProgressBar = ({ step, userInfo }) => {
     const classes = useStyles();
     const history = useHistory();
     const steps = getSteps();
@@ -32,6 +34,7 @@ export const ProgressBar = ({ step }) => {
     const handleClick = () => {
         history.push('/');
     }
+
     return (
         <div className="progressBar animate-navbar">
             <Navigation_HOC />
@@ -52,6 +55,12 @@ export const ProgressBar = ({ step }) => {
             </div>
             <div className="brandLogo">
                 <div className="bikeLogo1"></div>
+                {
+                    userInfo &&
+                    <div className="avatar">
+                        <NavAvatar userInfo={userInfo} />
+                    </div>
+                }
                 {
                     location.pathname !== "/" &&
                     <Cart />

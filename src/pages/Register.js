@@ -22,6 +22,7 @@ export const Register = ({ registerAPI, loading, result, error, registerResetAPI
         third: false,
         forth: false,
     });
+
     const [pwCondition_first, setPwCondition_first] = useState(false);
     const [pwCondition_second, setPwCondition_second] = useState(false);
     const [pwCondition_third, setPwCondition_third] = useState(false);

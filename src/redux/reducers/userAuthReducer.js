@@ -1,4 +1,4 @@
-import { AUTH_USER_FAIL, AUTH_USER_REQUEST, AUTH_USER_SUCCESS } from '../constants/userAuthConstant';
+import { AUTH_USER_FAIL, AUTH_USER_REQUEST, AUTH_USER_RESET, AUTH_USER_SUCCESS } from '../constants/userAuthConstant';
 
 const initialState = {
     loading: false,
@@ -14,6 +14,8 @@ export const userAuthReducer = (state = initialState, action) => {
             return { ...state, loading: false, userInfo: action.payload };
         case AUTH_USER_FAIL:
             return { ...state, loading: false, error: action.payload };
+        case AUTH_USER_RESET:
+            return {};
         default:
             return state;
     }
