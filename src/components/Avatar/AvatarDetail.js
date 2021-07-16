@@ -12,6 +12,7 @@ export const AvatarDetail = ({ isComponentVisible, userInfo }) => {
     const handleSignOut = () => {
         dispatch(signOutAction(email, history));
         console.log('this is signout');
+        history.push('/')
     };
 
     return (

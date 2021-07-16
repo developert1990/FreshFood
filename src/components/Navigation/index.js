@@ -1,5 +1,5 @@
 import withHooks from 'hook-hoc';
-import { useUser } from '../../hooks/useUser';
 import { Navigation } from './Navigation';
+import { useUser } from '../../hooks/useUser';
 
-export const Navigation_HOC = withHooks(useUser)(Navigation);
+export const NavigationHOC = withHooks(useUser)(Navigation);

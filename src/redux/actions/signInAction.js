@@ -1,6 +1,7 @@
 import axios from 'axios';
 import { saveStorage } from '../../libs/localStorage';
 import { SIGN_IN_FAIL, SIGN_IN_REQUEST, SIGN_IN_RESET, SIGN_IN_SUCCESS, SIGN_OUT_FAIL, SIGN_OUT_SUCCESS } from '../constants/signInConstant'
+import { AUTH_USER_RESET } from '../constants/userAuthConstant';
 
 export const signInAction = ({ email, password }) => async (dispatch) => {
     dispatch({ type: SIGN_IN_REQUEST });
@@ -31,6 +32,7 @@ export const signOutAction = (email) => async (dispatch) => {
         localStorage.removeItem('cartItems'); // 여기도 세션스토리지로 바꿔주장
         sessionStorage.removeItem('restaurant-user');
         dispatch({ type: SIGN_IN_RESET });
+        dispatch({ type: AUTH_USER_RESET});
     } catch (error) {
         dispatch({
             type: SIGN_OUT_FAIL,

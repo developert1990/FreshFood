@@ -8,7 +8,7 @@ export const NavAvatar = ({ userInfo }) => {
 
     return (
         <div className="navAvatart" ref={ref} >
-            <div className="avatar" style={{ cursor: 'pointer' }}>
+            <div className="avatar">
                 <Avatar alt="Temy Sharp" src="/static/images/avatar/1.jpg" />
             </div>
             <div className={isComponentVisible ? "avatarDetail" : ""}>
