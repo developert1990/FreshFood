@@ -38,7 +38,7 @@ jobs:
         
       - name : Log into EC2 and deploy (run container)
         run: |
-          export IMAGE_NAME=$IMAGE:${{ github.event.inputs.gitSha }}
+          export IMAGE_NAME=$IMAGE:${{github.event.inputs.gitSha}}
           export CONTAINER_NAME=${{github.event.inputs.containerName}}
           ssh aws docker run --name $CONTAINER_NAME -d -p 7707:80 $IMAGE_NAME
 
