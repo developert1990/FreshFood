@@ -3,4 +3,4 @@ const EC2 = process.env.REACT_APP_EC2;
 export const EMAIL_REG_EXP = /^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*.[a-zA-Z]{2,3}$/i;
 export const ZIPCODE_REG_EXP = /^[A-Za-z]\d[A-Za-z][ -]?\d[A-Za-z]\d$/;
 export const NAME_REG_EXP = /^[a-zA-Z]+$/;
-export const API = process.env.NODE_ENV === 'development' ? LOCAL : 'http://ec2-3-80-79-7.compute-1.amazonaws.com:7707';
+export const API = process.env.NODE_ENV === 'development' ? LOCAL : EC2;
