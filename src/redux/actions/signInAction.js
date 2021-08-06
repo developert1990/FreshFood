@@ -1,4 +1,5 @@
 import axios from 'axios';
+import { API } from '../../config';
 import { saveStorage } from '../../libs/localStorage';
 import { SIGN_IN_FAIL, SIGN_IN_REQUEST, SIGN_IN_RESET, SIGN_IN_SUCCESS, SIGN_OUT_FAIL, SIGN_OUT_SUCCESS } from '../constants/signInConstant'
 import { AUTH_USER_RESET } from '../constants/userAuthConstant';
@@ -6,7 +7,7 @@ import { AUTH_USER_RESET } from '../constants/userAuthConstant';
 export const signInAction = ({ email, password }) => async (dispatch) => {
     dispatch({ type: SIGN_IN_REQUEST });
     try {
-        const { data: { body: { userInfo } } } = await axios.post(`${process.env.REACT_APP_EXPRESS_LOCAL}/api/user`, { email, password }, {
+        const { data: { body: { userInfo } } } = await axios.post(`${API}/api/user`, { email, password }, {
             withCredentials: true,
         });
         saveStorage(userInfo);
@@ -25,7 +26,7 @@ export const signInAction = ({ email, password }) => async (dispatch) => {
 export const signOutAction = (email) => async (dispatch) => {
     const cartItems = JSON.parse(localStorage.getItem('cartItems'));
     try {
-        await axios.put(`${process.env.REACT_APP_EXPRESS_LOCAL}/api/user/signout?email=${email}`, { cartItems }, {
+        await axios.put(`${API}/api/user/signout?email=${email}`, { cartItems }, {
             withCredentials: true,
         });
         localStorage.removeItem('cartItems');

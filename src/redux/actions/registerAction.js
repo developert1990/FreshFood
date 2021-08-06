@@ -1,11 +1,12 @@
 import { REGISTER_FAIL, REGISTER_REQUEST, REGISTER_SUCCESS } from '../constants/registerConstant';
 import axios from 'axios';
+import { API } from '../../config';
 
 export const registerAction = (userInfo, history) => async (dispatch) => {
     dispatch({ type: REGISTER_REQUEST });
     console.log('userInfo :>> ', userInfo);
     try {
-        const result = await axios.put(`${process.env.REACT_APP_EXPRESS_LOCAL}/api/user`, userInfo);
+        const result = await axios.put(`${API}/api/user`, userInfo);
         dispatch({ type: REGISTER_SUCCESS, payload: result.data.body, email: userInfo.email });
         setTimeout(() => {
             history.push('/success');

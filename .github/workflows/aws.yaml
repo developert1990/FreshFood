@@ -38,10 +38,9 @@ jobs:
         
       - name : Log into EC2 and deploy (run container)
         run: |
-          export AWS_EC2_METADATA_DISABLED=true
           export IMAGE_NAME=$IMAGE:${{github.event.inputs.gitSha}}
           export CONTAINER_NAME=${{github.event.inputs.containerName}}
-          ssh aws docker run --name $CONTAINER_NAME -d -p 7707:80 magicq6265/freshfood-client:ff32976
+          ssh aws docker run --name $CONTAINER_NAME -d -p 7707:80 $IMAGE_NAME
 
         env:
           IMAGE: ${{secrets.DOCKER_IMAGE}} # Makefile에 DOCKER_USERNAME/APP_NAME 임
