@@ -12,7 +12,7 @@ on:
 
 jobs:
   deployment:
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-18.04
 
     steps:
       - name: Checking out repository code
@@ -38,7 +38,10 @@ jobs:
         
       - name : Log into EC2 and deploy (run container)
         run: |
-          ssh aws docker run --name freshfood-client -d -p 7707:80 magicq6265/freshfood-client:ff32976
+          export AWS_EC2_METADATA_DISABLED=true
+          export IMAGE_NAME=$IMAGE:${{github.event.inputs.gitSha}}
+          export CONTAINER_NAME=${{github.event.inputs.containerName}}
+          ssh aws docker run --name $CONTAINER_NAME -d -p 7707:80 magicq6265/freshfood-client:ff32976
 
         env:
           IMAGE: ${{secrets.DOCKER_IMAGE}} # Makefile에 DOCKER_USERNAME/APP_NAME 임
