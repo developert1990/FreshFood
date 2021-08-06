@@ -7,6 +7,7 @@ import { RestrictRoute } from '../components/RestrictRoute';
 import { ErrorPage } from '../pages/ErrorPage';
 import { SuccessView } from '../components/SuccessView';
 import { VerifyCodePage } from '../pages/VerifyCodePage';
+import { StripeContainer } from '../components/StripeContainer/StripeContainer';
 
 // eslint-disable-next-line import/no-anonymous-default-export
 export default () => {
@@ -14,6 +15,7 @@ export default () => {
         <BrowserRouter>
             <NavigationHOC />
             <Switch>
+                <Route path="/stripe" component={StripeContainer}/>
                 <PrivateRoute path="/addItems" component={AddItems_HOC} />
                 <Route path="/signin" component={SignIn_HOC} />
                 <Route path="/register" component={Register_HOC} />

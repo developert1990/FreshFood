@@ -8,11 +8,9 @@ export const registerAction = (userInfo, history) => async (dispatch) => {
         const result = await axios.put(`${process.env.REACT_APP_EXPRESS_LOCAL}/api/user`, userInfo);
         dispatch({ type: REGISTER_SUCCESS, payload: result.data.body, email: userInfo.email });
         setTimeout(() => {
-            console.log('석세스');
             history.push('/success');
         }, 1000);
         setTimeout(() => {
-            console.log('베리파이페이지로 히스토리');
             history.push(`/verifyCode?email=${userInfo.email}`);
         }, 3000);
 

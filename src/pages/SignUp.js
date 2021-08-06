@@ -37,7 +37,6 @@ export const SignUp = ({ signUpAPI, signUpFailZipCodeAPI, signUpFailEmailAPI, em
         signUpAPI(zipCode, email);
         changeStep(1);
         history.push('/addItems');
-
     }
 
     useEffect(() => {

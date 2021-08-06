@@ -23,13 +23,12 @@ export const signInAction = ({ email, password }) => async (dispatch) => {
 }
 
 export const signOutAction = (email) => async (dispatch) => {
-    console.log('사인아웃액션');
     const cartItems = JSON.parse(localStorage.getItem('cartItems'));
     try {
         await axios.put(`${process.env.REACT_APP_EXPRESS_LOCAL}/api/user/signout?email=${email}`, { cartItems }, {
             withCredentials: true,
         });
-        localStorage.removeItem('cartItems'); // 여기도 세션스토리지로 바꿔주장
+        localStorage.removeItem('cartItems');
         sessionStorage.removeItem('restaurant-user');
         dispatch({ type: SIGN_IN_RESET });
         dispatch({ type: AUTH_USER_RESET});
