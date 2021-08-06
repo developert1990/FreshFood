@@ -7,6 +7,7 @@ import { AUTH_USER_RESET } from '../constants/userAuthConstant';
 export const signInAction = ({ email, password }) => async (dispatch) => {
     dispatch({ type: SIGN_IN_REQUEST });
     try {
+        console.log('API :>> ', API);
         const { data: { body: { userInfo } } } = await axios.post(`${API}/api/user`, { email, password }, {
             withCredentials: true,
         });
