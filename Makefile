@@ -1,5 +1,5 @@
 DOCKER_USERNAME := magicq6265
-APP_NAME := freshFood-client
+APP_NAME := freshfood-client
 GIT_SHA := $(shell git rev-parse --short HEAD)
 IMAGE := ${DOCKER_USERNAME}/${APP_NAME}:${GIT_SHA}
 
